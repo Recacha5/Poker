@@ -5,6 +5,8 @@
  */
 package poker;
 
+import java.util.Random;
+
 /**
  *
  * @author alumno
@@ -18,6 +20,30 @@ public class Player {
         this.mano =new Carta[5];
     }
 
+    public void repartir(Carta[] baraja){
+        Random r = new Random();
+        int aux = 0 , num = 0 ;
+        while(aux<5){
+        num =  r.nextInt(51);
+        if(baraja[num]!=null){
+            mano[aux]=baraja[num];
+            baraja[num]=null;
+            aux++;
+        }    
+        
+        }
+                
+      
+    }
+    
+  /*  public int puntuar(){
+        for (int i = 0; i < mano.length; i++) {
+            
+                
+            }
+        }
+    }
+    */
     /**
      * @return the nUsuario
      */
