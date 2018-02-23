@@ -7,6 +7,7 @@ package poker;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,13 @@ public class InterfazInicio extends javax.swing.JFrame {
      */
     public InterfazInicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        jLabelPlayer1.setVisible(false);
+        jLabelPlayer2.setVisible(false);
+        jTextFieldPlayer1.setVisible(false);
+        jTextFieldPlayer2.setVisible(false);
+        jButton1.setEnabled(false);
+
     }
 
     /**
@@ -31,37 +39,46 @@ public class InterfazInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelPlayer2 = new javax.swing.JLabel();
+        jLabelPlayer1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldPlayer2 = new javax.swing.JTextField();
         jTextFieldPlayer1 = new javax.swing.JTextField();
+        jCheckBoxConfirmarEdad = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("JUGAR");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Player 2:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+        jLabelPlayer2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelPlayer2.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
+        jLabelPlayer2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPlayer2.setText("Player 2:");
+        getContentPane().add(jLabelPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel4.setText("Player 1:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        jLabelPlayer1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelPlayer1.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
+        jLabelPlayer1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelPlayer1.setText("Player 1:");
+        getContentPane().add(jLabelPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/titulo_final.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
-        getContentPane().add(jTextFieldPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 120, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        getContentPane().add(jTextFieldPlayer2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 120, -1));
 
         jTextFieldPlayer1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -73,7 +90,26 @@ public class InterfazInicio extends javax.swing.JFrame {
                 jTextFieldPlayer1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 120, -1));
+        getContentPane().add(jTextFieldPlayer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 120, -1));
+
+        jCheckBoxConfirmarEdad.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxConfirmarEdad.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jCheckBoxConfirmarEdad.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxConfirmarEdad.setText("Confirmar la mayoría de edad.");
+        jCheckBoxConfirmarEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConfirmarEdadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBoxConfirmarEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/equissalir.jpg"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_final.jpg"))); // NOI18N
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -95,12 +131,47 @@ public class InterfazInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     private void jTextFieldPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlayer1ActionPerformed
-        
+
     }//GEN-LAST:event_jTextFieldPlayer1ActionPerformed
 
     private void jTextFieldPlayer1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPlayer1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPlayer1MouseClicked
+
+    private void jCheckBoxConfirmarEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConfirmarEdadActionPerformed
+        if (!jCheckBoxConfirmarEdad.isSelected()) {
+            jLabelPlayer1.setVisible(false);
+            jLabelPlayer2.setVisible(false);
+            jTextFieldPlayer1.setVisible(false);
+            jTextFieldPlayer2.setVisible(false);
+            jButton1.setEnabled(false);
+        } else {
+            jTextFieldPlayer1.setVisible(true);
+            jTextFieldPlayer2.setVisible(true);
+            jLabelPlayer1.setVisible(true);
+            jLabelPlayer2.setVisible(true);
+            jButton1.setEnabled(true);
+        }
+
+
+    }//GEN-LAST:event_jCheckBoxConfirmarEdadActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String player1 = jTextFieldPlayer1.getText().trim();
+        String player2 = jTextFieldPlayer2.getText().trim();
+        if (!player1.equalsIgnoreCase("") && !player2.equalsIgnoreCase("")) {
+            MesaJuego ventana = new MesaJuego();
+            ventana.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta por rellenar algún nombre de los jugadores.\nRellena ambos campos para iniciar el juego.");
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -139,10 +210,12 @@ public class InterfazInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBoxConfirmarEdad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelPlayer1;
+    private javax.swing.JLabel jLabelPlayer2;
     private javax.swing.JTextField jTextFieldPlayer1;
     private javax.swing.JTextField jTextFieldPlayer2;
     // End of variables declaration//GEN-END:variables
