@@ -12,12 +12,22 @@ package poker;
 public class Carta {
     private String simbolo;
     private String numero;
+    private int valor;
 
-    public Carta(String simbolo, String numero) {
+    public Carta(String simbolo, String numero, int valor) {
         this.simbolo = simbolo;
         this.numero = numero;
+        this.valor = valor;
     }
 
+    
+
+    @Override
+    public String toString() {
+        return "Carta{" + "simbolo=" + getSimbolo() + ", numero=" + getNumero();
+    }
+
+    
     /**
      * @return the simbolo
      */
@@ -44,6 +54,20 @@ public class Carta {
      */
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    /**
+     * @return the valor
+     */
+    public int getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(int valor) {
+        this.valor = valor;
     }
     
     
