@@ -12,11 +12,15 @@ package poker;
 public class Poker {
 
     public static void main(String[] args) {
-        
-        
-        
-        
-        
+
+        Carta[] vBaraja = Baraja.crearBaraja();
+        Player p = new Player("pepe");
+        p.repartir(vBaraja);
+        for (int i = 0; i < p.getMano().length; i++) {
+            System.out.println(p.getMano()[i]);
+
+        }
+        System.out.println(p.puntuacion());
     }
-    
+
 }
