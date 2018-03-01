@@ -109,7 +109,7 @@ public class InterfazInicio extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo_final.jpg"))); // NOI18N
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -162,6 +162,7 @@ public class InterfazInicio extends javax.swing.JFrame {
         if (!player1.equalsIgnoreCase("") && !player2.equalsIgnoreCase("")) {
             MesaJuego ventana = new MesaJuego();
             ventana.setVisible(true);
+            ventana.setLocationRelativeTo(this);
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Falta por rellenar algún nombre de los jugadores.\nRellena ambos campos para iniciar el juego.");
